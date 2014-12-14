@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/tejasmanohar/text-weather/issues"
   },
-  "homepage": "https://github.com/tejasmanohar/text-weather"
+  "homepage": "https://github.com/tejasmanohar/text-weather",
+  "dependencies": {
+    "twilio": "^1.10.0"
+  }
 }
