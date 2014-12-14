@@ -1,0 +1,26 @@
+{
+  "name": "text-weather",
+  "version": "1.0.0",
+  "description": "receive weather info via sms",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tejasmanohar/text-weather.git"
+  },
+  "keywords": [
+    "weather",
+    "sms",
+    "twilio",
+    "text",
+    "yahoo"
+  ],
+  "author": "Tejas Manohar <me@tejasmanohar.com> (https://tejas.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tejasmanohar/text-weather/issues"
+  },
+  "homepage": "https://github.com/tejasmanohar/text-weather"
+}
