@@ -17,12 +17,15 @@ app.get('/receive', function(req, res) {
     .get('http://api.openweathermap.org/data/2.5/weather?q=' + req.query['Body'] + '&APPID=' + process.env.APP_ID)
     .end(function(error, response){
       var data = JSON.parse(response.text);
+      console.log(data.main);
+      var alreadyCalled = false;
       client.sendMessage({
         to: req.query['From'],
         from: process.env.TWILIO_NUMBER,
         body: data.main.temp
       }, function(err, responseData) {
-        console.log('callback got', arguments);
+        if (alreadyCalled) return;
+        alreadyCalled = true;
         if (err) {
           console.log('error')
           res.sendStatus(500);
