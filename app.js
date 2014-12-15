@@ -24,7 +24,7 @@ app.get('/receive', function(req, res) {
         body: data.main.temp
       }, function(err, responseData) {
         if (!err) {
-          console.log('error!')
+          console.log('sent!')
         }
       });
     });
