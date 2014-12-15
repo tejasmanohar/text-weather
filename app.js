@@ -15,6 +15,7 @@ var router = express.Router();
 
 // accept POST on /receive
 router.post('/receive', function(req, res) {
+  console.log(req)
   request
   .get('http://api.openweathermap.org/data/2.5/weather?q=' + req.param('Body') + '&APPID=' + process.env.APP_ID)
   .set('Accept', 'application/json')
@@ -33,7 +34,6 @@ router.post('/receive', function(req, res) {
       }
     });
   });
-  console.log(req.param('Body'));
 });
 
 // server listens
