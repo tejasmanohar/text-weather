@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/tejasmanohar/text-weather",
   "dependencies": {
+    "express": "^4.10.6",
     "superagent": "^0.21.0",
     "twilio": "^1.10.0"
   }
