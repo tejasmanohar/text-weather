@@ -21,13 +21,10 @@ router.post('/receive', function(req, res) {
   .set('Accept', 'application/json')
   .end(function(error, res){
     client.sendMessage({
-
       to: req.param('From'),
       from: process.env.TWILIO_NUMBER,
       body: res.text.main.temp
-
     }, function(err, responseData) {
-
       if (!err) {
         console.log(responseData.from);
         console.log(responseData.body);
