@@ -11,22 +11,23 @@ var client = require('twilio')(process.env.ACCOUNT_SID, process.env.AUTH_TOKEN);
 var request = require('superagent');
 
 // accept POST on /receive
-app.post('/receive', function(req, res) {
+app.get('/receive', function(req, res) {
+  console.log(req.query['From'] + ' ' + process.env.TWILIO_NUMBER)
   request
-  .get('http://api.openweathermap.org/data/2.5/weather?q=' + req.param('Body') + '&APPID=' + process.env.APP_ID)
-  .set('Accept', 'application/json')
-  .end(function(error, res){
-    console.log(res);
-    client.sendMessage({
-      to: req.param('From'),
-      from: process.env.TWILIO_NUMBER,
-      body: res.text.main.temp
-    }, function(err, responseData) {
-      if (!err) {
-        console.log('error!')
-      }
+    .get('http://api.openweathermap.org/data/2.5/weather?q=' + req.query['Body'] + '&APPID=' + process.env.APP_ID)
+    .end(function(error, res){
+      var data = JSON.parse(res.text);
+      console.log(data.main.temp)
+      client.sendMessage({
+        to: req.query['From'],
+        from: process.env.TWILIO_NUMBER,
+        body: data.main.temp
+      }, function(err, responseData) {
+        if (!err) {
+          console.log('error!')
+        }
+      });
     });
-  });
 });
 
 // server listens
